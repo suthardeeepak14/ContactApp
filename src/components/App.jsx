@@ -3,11 +3,24 @@ import Header from "./Header";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import contacts from "../contacts";
+
+function createCard(cont) {
+  return (
+    <Contact
+      key={cont.id}
+      name={cont.name}
+      img={cont.imgURL}
+      tel={cont.phone}
+      email={cont.email}
+    />
+  );
+}
 function App() {
   return (
     <div>
       <Header />
-      <Contact
+      {contacts.map(createCard)}
+      {/* <Contact
         name={contacts[0].name}
         img={contacts[0].imgURL}
         tel={contacts[0].phone}
@@ -24,7 +37,7 @@ function App() {
         img={contacts[2].imgURL}
         tel={contacts[2].phone}
         email={contacts[2].email}
-      />
+      /> */}
       <Footer />
     </div>
   );
